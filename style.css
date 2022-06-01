@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body.light {
+  --bg-color: hsl(0, 0%, 100%);
+  --color: hsl(0, 0%, 100%);
+  --card: hsl(240, 9%, 89%);
+  --card-on: hsl(194, 97%, 31%);
+  --switcher: hsl(0, 0%, 0%);
+  --text-color: hsl(240, 6%, 21%);
+  --controls: hsl(240, 6%, 21%);
+  --thumb: hsl(240, 6%, 21%);
+}
+
+body.dark {
+  --bg-color: hsl(240, 5%, 7%);
+  --color: hsl(0, 0%, 100%);
+  --card: hsl(240, 6%, 17%);
+  --card-on: hsl(195, 74%, 15%);
+  --switcher: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 100%);
+  --controls: hsl(240, 7%, 78%);
+  --thumb: hsl(0, 0%, 100%);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19.2rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button.light-switcher {
+  color: var(--switcher);
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+}
+
+button.dark-switcher {
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+}
+
+button svg {
+  width: clamp(3rem, 2rem + 12vw, 4.4rem);
+}
+
+.hide {
+  display: none;
+}
+
+#timer {
+  font-size: 12.6rem;
+  display: flex;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+  color: var(--controls);
+}
+
+#controls svg path,
+#cards button svg path {
+  fill: var(--controls);
+}
+
+#cards {
+  display: grid;
+  grid-template:
+    'A B'
+    'C D';
+  gap: 3.2rem;
+}
+
+#cards button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+  width: 13.8rem;
+  height: 15.2rem;
+  background: var(--card);
+  border-radius: 2.4rem;
+}
+
+#cards input {
+  -webkit-appearance: none;
+  background: var(--text-color);
+  width: 9rem;
+  height: 0.4rem;
+  border-radius: 0.5rem;
+}
+
+#cards input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: var(--thumb);
+  cursor: pointer;
+}
+
+#cards::-moz-range-thumb {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--thumb);
+  cursor: pointer;
+}
+
+#cards button.on  {
+  background: var(--card-on);
+}
+
+#cards button.on svg path{
+  fill: var(--color);
+}
+
+#cards button.on input {
+  background: var(--color);
+}
+
+#cards button.on input::-webkit-slider-thumb {
+  background: var(--color);
+}
+
+#cards button.on input::-moz-range-thumb {
+  background: var(--color);
+}
